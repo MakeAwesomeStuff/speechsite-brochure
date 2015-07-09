@@ -364,17 +364,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
-
-    gulp: {
-      options: {
-        tasks: function(stream) {
-          require('/bower_components/semantic-ui/tasks/watch')
-          return stream.pipe(require('gulp-coffee')());
-        },
-      },
-      'dist/bundle.js': ['lib/*.coffee'],
-    },
+    }
   });
 
 
