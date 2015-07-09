@@ -2,6 +2,5 @@
   "name": "speechsite-brochure",
   "private": true,
   "dependencies": {
-    "semantic-ui": "~2.0.2"
   }
 }
