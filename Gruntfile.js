@@ -47,9 +47,9 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['sass:server', 'postcss']
+      less: {
+        files: ['<%= config.app %>/styles/{,*/}*.less'],
+        tasks: ['less:server', 'postcss']
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
@@ -161,28 +161,30 @@ module.exports = function (grunt) {
       }
     },
 
-    // Compiles Sass to CSS and generates necessary files if requested
-    sass: {
-      options: {
-        sourceMap: true,
-        sourceMapEmbed: true,
-        sourceMapContents: true,
-        includePaths: ['.']
-      },
+    // Compiles LESS to CSS and generates necessary files if requested
+    less: {
       dist: {
+        options: {
+        },
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          src: ['main.less'],
+          dest: '.tmp/styles/',
           ext: '.css'
         }]
       },
       server: {
+        options: {
+          sourceMap: true,
+          sourceMapEmbed: true,
+          sourceMapContents: true,
+          includePaths: ['.']
+        },
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
+          src: ['*.less'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
@@ -215,8 +217,8 @@ module.exports = function (grunt) {
         src: ['<%= config.app %>/index.html'],
         ignorePath: /^(\.\.\/)*\.\./
       },
-      sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+      less: {
+        src: ['<%= config.app %>/styles/{,*/}*.less'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -351,18 +353,28 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'babel:dist',
-        'sass:server'
+        'less:server'
       ],
       test: [
         'babel'
       ],
       dist: [
         'babel',
-        'sass',
+        'less',
         'imagemin',
         'svgmin'
       ]
-    }
+    },
+
+    gulp: {
+      options: {
+        tasks: function(stream) {
+          require('/bower_components/semantic-ui/tasks/watch')
+          return stream.pipe(require('gulp-coffee')());
+        },
+      },
+      'dist/bundle.js': ['lib/*.coffee'],
+    },
   });
 
 
