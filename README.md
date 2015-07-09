@@ -7,7 +7,7 @@ Brochure site for Speechsite
 3. Install helpers: `install -g bower grunt-cli`
 4. To fix bower bug run: `mkdir bower_components`
 
-#Development
+# Development
 1. Install dependencies: `npm install` & `bower install`
 2. Start server: `grunt serve`
 
