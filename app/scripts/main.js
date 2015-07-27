@@ -1,7 +1,15 @@
 // jshint devel:true
 
-//Example
-// typeWriter('type-box', "Deliver a memorable wedding speech", 100);
+$('.call-to-action').on('click', function() {
+    event.preventDefault();
+    var link = this;
+    $.smoothScroll({
+      scrollTarget: link.hash
+    });
+    return false;
+  });
+
+
 var theater = new TheaterJS();
 theater.describe("Problem", { speed: 1, accuracy: 1}, "#typer");
 theater //.write( "Problem:Deliver a memorable wedding speech", 3000)
