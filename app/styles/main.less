@@ -19,7 +19,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  
+
 }
 
 h2 {
@@ -39,9 +39,37 @@ em {
 
 ul {
   padding: 1em;
-  
+
   li {
     margin-bottom: 1em;
+  }
+}
+
+
+// This is the cursor when typing.
+// It is not perfect
+@keyframes caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.saying {
+
+  display: inline-block;
+  min-height: 1em;
+  position: relative;
+
+  &:after {
+    -webkit-animation: caret 500ms infinite;
+    animation: caret 500ms infinite;
+    box-sizing: border-box;
+    bottom: 0px;
+    content: "|";
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 1;
+    opacity: 1;
+    position: absolute;
+    vertical-align: baseline;
   }
 }
 
@@ -52,25 +80,29 @@ ul {
   background-position: center bottom;
   background-size: cover;
   color: #FFF;
-  
+
   @media only screen and (max-width: 767px) {
     background-size: contain;
   }
-  
+
   #context {
     font-size: 1.8rem;
     letter-spacing: 0.025em;
     margin: 0;
     text-transform: uppercase;
   }
-  
+
   #problem {
     font-size: 5.4rem;
     font-weight: 700;
     line-height: 1em;
     margin: 60px 0 80px 0;
+    min-height: 54px;
+    @media only screen and (max-width: 767px) {
+      min-height: 162px;
+    }
   }
-  
+
   #solution {
     background: fade(@yellow, 65%);
     font-size: 2.4rem;
@@ -78,12 +110,12 @@ ul {
     padding: 40px;
     max-width: 24em;
   }
-  
+
   #call-to-action {
     display: inline-block;
     margin-top: 80px;
     position: relative;
-    
+
     &:before {
       background-image: url('/arrow@2x.png');
       background-position: right bottom;
@@ -100,7 +132,7 @@ ul {
       text-align: left;
       top: -25px;
       width: 300px;
-      
+
       @media only screen and (max-width: 767px) {
         background-image: url('/arrow-stacked@2x.png');
         background-position: left bottom;
@@ -117,14 +149,14 @@ ul {
 
 #value-propositions {
   padding-bottom: 0;
-  
+
   p {
     &.problem {
       line-height: 1.7em;
       margin-bottom: 40px;
     }
   }
-  
+
   p {
     &.solution {
       font-size: 2.4rem;
@@ -140,15 +172,15 @@ ul {
   background-repeat: no-repeat;
   background-size: 1200px auto;
   padding: 190px 0;
-  
+
   @media only screen and (max-width: 767px) {
     background-size: 600px auto;
     padding: 100px 0;
   }
-  
+
   h2 {
     margin-bottom: 0 !important;
-    
+
     span {
       font-weight: 400;
     }
@@ -165,13 +197,13 @@ span {
     margin-right: 0.2em;
     padding: 0.05em 0.75em;
     text-transform: uppercase;
-    
+
     @media only screen and (max-width: 767px) {
       display: block;
       width: intrinsic;
       margin: 0 auto;
     }
-    
+
     &.mentee {
       background: @yellow;
     }
@@ -187,21 +219,21 @@ span {
 #register-interest {
   background: @yellow;
   color: #FFF;
-  
+
   h2 {
     display: inline-block;
     font-weight: 400;
     margin: 0 !important;
-    
+
     @media only screen and (max-width: 820px) {
       display: block;
       margin-bottom: 40px !important;
     }
   }
-  
+
   form {
     display: inline-block;
-    
+
     input[type=text] {
       border: none;
       border-radius: 6px;
@@ -210,13 +242,13 @@ span {
       margin: 0 10px 0 30px;
       min-width: 300px;
       padding: 0.95em 1.2em;
-      
+
       @media only screen and (max-width: 767px) {
         width: 100%;
         margin: 0 0 20px 0;
       }
     }
-    
+
     input[type=submit] {
       vertical-align: top;
     }
@@ -224,7 +256,7 @@ span {
 }
 
 .button {
-  
+
   &.call-to-action {
     background: @blue;
     background-image: linear-gradient(to bottom, lighten(@blue, 10%), darken(@blue, 10%)) !important;
@@ -235,12 +267,12 @@ span {
     font-weight: 400;
     padding: 0.9em 1.8em;
     position: relative;
-  
+
     &:hover {
       box-shadow: 0px 6px 0px darken(@blue, 20%) !important;
       cursor: pointer;
     }
-  
+
     &:active {
       box-shadow: 0px 4px 0px darken(@blue, 15%) !important;
       top: 2px;
@@ -252,11 +284,11 @@ footer {
   padding: 60px 0;
   font-size: 1.6rem;
   color: rgba(0, 0, 0, 0.4);
-  
-  a { 
+
+  a {
     color: rgba(0, 0, 0, 0.4);
     font-weight: 700;
-    
+
     &:hover {
       color: @blue;
     }
@@ -277,19 +309,19 @@ footer {
   p {
     text-align: center;
   }
-  
+
   .ui {
     &.fluid {
       &.container {
         width: auto;
       }
     }
-    
+
     &.container {
       margin-left: 20px !important;
       margin-right: 20px !important;
     }
-    
+
     &.grid {
       margin-left: 0;
       margin-right: 0;
