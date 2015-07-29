@@ -16,7 +16,7 @@ theater .write( "Problem:Deliver a memorable wedding speech", 3000)
         .write("Problem:Inspire your new team at work", 3000)
         .write("Problem:Nail that job interview", 3000)
         .write("Problem:Build networking confidence", 3000)
-        .write(function () { theater.play(true); });
+        .write(function () { theater.play(true); })
 
 
 // http://stackoverflow.com/questions/29810100/ajax-javascript-post-to-google-spreadsheet-without-jquery

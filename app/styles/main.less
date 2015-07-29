@@ -53,23 +53,21 @@ ul {
   50% { opacity: 0; }
 }
 .saying {
-
-  // display: inline-block;
-  min-height: 1em;
   position: relative;
 
   &:after {
     -webkit-animation: caret 500ms infinite;
     animation: caret 500ms infinite;
+    background: white;
     box-sizing: border-box;
-    bottom: 0px;
-    content: "|";
+    bottom: 6px;
+    content: "";
     display: inline-block;
-    font-size: 1.2em;
-    line-height: 1;
+    height: 1.2em;
+    margin-left: 3px;
     opacity: 1;
     position: absolute;
-    vertical-align: baseline;
+    width: 3px;
   }
 }
 
@@ -92,14 +90,20 @@ ul {
     text-transform: uppercase;
   }
 
+  #problem-container {
+    min-height: 70px;
+    margin: 60px 0 80px 0;
+    @media only screen and (max-width: 767px) {
+      min-height: 162px;
+    }
+  }
+
   #problem {
     font-size: 5.4rem;
     font-weight: 700;
     line-height: 1.3em;
-    margin: 60px 0 80px 0;
-    min-height: 54px;
+    min-height: 1.3em;
     @media only screen and (max-width: 767px) {
-      min-height: 162px;
       font-size: 4.2rem;
     }
   }
