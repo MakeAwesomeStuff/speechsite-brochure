@@ -19,3 +19,23 @@ theater //.write( "Problem:Deliver a memorable wedding speech", 3000)
         .write("Problem:No longer be the quiet one", 3000)
         .write(function () { theater.play(true); });
 
+
+$('#register-interest-form').submit(function(e){
+   e.preventDefault();
+   $.ajax({
+      // url: "https://docs.google.com/forms/d/1PrgHQALlz0WrvwjhGpLrtIgD5aQ1x-8HrOubkxTLNKs/formResponse",
+      type: "POST",
+      data: {
+        //  'entry.111':     $('#entry_111').val(),
+        //  'entry.222': $('#entry_222').val(),
+        // all data from form
+      }
+   }).done(function(data){
+      // yourAction(data);
+      console.log('done');
+   }).fail(function(data){
+      // failAction(data);
+      console.log('fail');
+   });
+});
+
