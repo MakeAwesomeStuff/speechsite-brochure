@@ -1,6 +1,6 @@
 // jshint devel:true
 
-$('.call-to-action').on('click', function() {
+$('#masthead .call-to-action').on('click', function(event) {
     event.preventDefault();
     var link = this;
     $.smoothScroll({
@@ -20,22 +20,26 @@ theater //.write( "Problem:Deliver a memorable wedding speech", 3000)
         .write(function () { theater.play(true); });
 
 
+// http://stackoverflow.com/questions/29810100/ajax-javascript-post-to-google-spreadsheet-without-jquery
 $('#register-interest-form').submit(function(e){
    e.preventDefault();
-   $.ajax({
-      // url: "https://docs.google.com/forms/d/1PrgHQALlz0WrvwjhGpLrtIgD5aQ1x-8HrOubkxTLNKs/formResponse",
-      type: "POST",
-      data: {
-        //  'entry.111':     $('#entry_111').val(),
-        //  'entry.222': $('#entry_222').val(),
-        // all data from form
-      }
-   }).done(function(data){
-      // yourAction(data);
-      console.log('done');
-   }).fail(function(data){
-      // failAction(data);
-      console.log('fail');
-   });
+   var email = $('#register-email').val()
+   if (email != ''){
+     $('#register-email').attr('placeholder', 'Thankyou!');
+     $('#register-email').val('');
+     $.ajax({
+        url: 'https://docs.google.com/forms/d/1MsPOgptLrb8vAeU56gjXits3qCeAyYoKKPnb9IrljhM/formResponse',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        type: 'POST',
+        data: {
+          'entry.2088639796': email
+        }
+     }).done(function(data){
+     }).fail(function(data){
+        // note: fail always calls because of XMLHttpRequest error but form still submits
+     });
+   }
+
+  return false;
 });
 
