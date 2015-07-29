@@ -199,7 +199,7 @@ span {
     text-transform: uppercase;
 
     @media only screen and (max-width: 767px) {
-      display: block;
+      /* display: block; */
       width: intrinsic;
       margin: 0 auto;
     }
@@ -307,7 +307,7 @@ footer {
 
 @media only screen and (max-width: 767px) {
   p {
-    text-align: center;
+/*     text-align: center; */
   }
 
   .ui {
@@ -325,6 +325,16 @@ footer {
     &.grid {
       margin-left: 0;
       margin-right: 0;
+    }
+  }
+}
+
+/* Semantic overrides */
+.ui {
+  .grid {
+    >.column:not(.row), .ui.grid>.row>.column {
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 }
