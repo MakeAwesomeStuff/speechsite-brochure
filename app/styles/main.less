@@ -272,21 +272,22 @@ input[type="search"] {
     background: @blue;
     background-image: linear-gradient(to bottom, lighten(@blue, 10%), darken(@blue, 10%)) !important;
     border-radius: 6px;
-    box-shadow: 0px 6px 0px darken(@blue, 15%);
+    box-shadow: 0 -0.3em 0 darken(@blue, 15%) inset;
     color: #FFF !important;
     font-size: 2rem;
     font-weight: 400;
-    padding: 0.9em 1.8em;
+    padding: 0.9em 1.8em 1.2em;
     position: relative;
 
     &:hover {
-      box-shadow: 0px 6px 0px darken(@blue, 20%) !important;
+      box-shadow: 0 -0.3em 0 darken(@blue, 20%) inset !important;
       cursor: pointer;
     }
 
     &:active {
-      box-shadow: 0px 4px 0px darken(@blue, 15%) !important;
-      top: 2px;
+      box-shadow: 0px -0.1em 0px darken(@blue, 15%) inset !important;
+      padding-bottom: 1em;
+      margin-top: 0.2em;
     }
   }
 }
